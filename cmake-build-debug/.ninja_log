@@ -1,0 +1,8 @@
+# ninja log v5
+0	465	7156372952286260	CMakeFiles/untitled.dir/main.cpp.obj	c170f4312793c274
+467	626	7156372953867220	untitled.exe	a69561a73a3f6362
+32	322	7156449728781605	CMakeFiles/untitled.dir/Nodo.cpp.obj	1610a24fdab925f3
+16	809	7156449733699185	CMakeFiles/untitled.dir/list2linked.cpp.obj	3d7da31c9ed641fd
+810	1154	7156449737109202	untitled.exe	11d5d9c189a170ee
+3	528	7156450909710847	CMakeFiles/untitled.dir/main.cpp.obj	c170f4312793c274
+529	823	7156450912581654	untitled.exe	11d5d9c189a170ee
