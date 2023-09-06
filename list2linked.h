@@ -8,7 +8,8 @@
 
 class list2linked {
 
-    public: Nodo *head;
+    public: string cientificos[2];
+        Nodo *head;
         list2linked();
         // Insertar un nuevo nodo en la posicion inicial
         void insert(int value);
@@ -16,6 +17,8 @@ class list2linked {
         // Mostrar los nodos de la lista
         void display();
 
+        // Crea nueva lista
+        void crearlista();
 
 };
 
