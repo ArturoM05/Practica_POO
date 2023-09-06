@@ -2,6 +2,7 @@
 // Created by Arturo on 5/09/2023.
 //
 #include <iostream>
+#include <cstdlib>
 #include "list2linked.h"
 
 
@@ -9,8 +10,30 @@ using namespace std;
 
 list2linked::list2linked() {
     this->head = nullptr;
+    this->cientificos = {"Einsten, Rosen"};
 }
 
+// Crea una nueva lista
+void lista2linked::crearLista() {
+    int x=0;
+    do {
+        if (x != 22) {
+            // Creamos los datos del nodo
+            int dato = rand() % 101;
+            string cientifico = this->cientificos[rand()%1];
+            // Creamos un nuevo nodo
+            Nodo*node = new Nodo(dato, cientifico);
+            node->next = this->head; 
+            //Cuando la lista no esta vacía
+            if(this->head != nullptr){
+                this->head->prev = node;
+            }
+            // Asignamos al nuevo nodo como la cabeza 
+            this->head= node;
+        }
+        x++;
+    } while (x <= 22);
+}
 // Insertar un nuevo nodo al inicio
 void list2linked::insert(int value){
     // Crear un nuevo nodo
