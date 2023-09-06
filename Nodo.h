@@ -12,9 +12,10 @@ class Nodo {
 public:
     string tipo;
     int data;
+    string cientifico;
     Nodo *next;
     Nodo *prev;
-    Nodo(int data, string tipo);
+    Nodo(int data, string cientifico);
 };
 
 
