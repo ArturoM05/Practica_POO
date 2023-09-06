@@ -3,10 +3,11 @@
 //
 
 #include "Nodo.h"
-Nodo::Nodo(int data, string tipo)
+Nodo::Nodo(int data, string cientifico)
 {
-    this->tipo = tipo;
+    this->tipo = "";
     this->data = data;
+    this->cientifico = cientifico;
     this->next = nullptr;
     this->prev = nullptr;
 }
