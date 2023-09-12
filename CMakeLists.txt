@@ -8,4 +8,6 @@ add_executable(untitled main.cpp
         list2linked.h
         list2linked.h
         Nodo.cpp
-        Nodo.h)
+        Nodo.h
+        Datos.cpp
+        Datos.h)
