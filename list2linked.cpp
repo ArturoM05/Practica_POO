@@ -10,19 +10,15 @@ using namespace std;
 
 list2linked::list2linked() {
     this->head = nullptr;
-    this->cientificos = {"Einsten, Rosen"};
 }
 
 // Crea una nueva lista
-void lista2linked::crearLista() {
+void list2linked::crearlista() {
     int x=0;
     do {
         if (x != 22) {
-            // Creamos los datos del nodo
-            int dato = rand() % 101;
-            string cientifico = this->cientificos[rand()%1];
             // Creamos un nuevo nodo
-            Nodo*node = new Nodo(dato, cientifico);
+            Nodo*node = new Nodo();
             node->next = this->head; 
             //Cuando la lista no esta vacía
             if(this->head != nullptr){
@@ -35,18 +31,7 @@ void lista2linked::crearLista() {
     } while (x <= 22);
 }
 // Insertar un nuevo nodo al inicio
-void list2linked::insert(int value){
-    // Crear un nuevo nodo
-    Nodo *node = new Nodo(value);
-    node->next = this->head;
-    // Cuando la lista no está vacía
-    if (this->head != nullptr)
-    {
-        this->head->prev = node;
-    }
-    // Hacer que el nuevo nodo sea el Head
-    this->head = node;
-}
+
 
 // Mostrar elementos de la lista doblemente enlazada
 void list2linked:: display()
@@ -64,7 +49,6 @@ void list2linked:: display()
         while (temp != nullptr)
         {
             // Mostrar el valor del nodo
-            cout << "  " << temp->data;
             // Visita el siguiente nodo
             temp = temp->next;
         }

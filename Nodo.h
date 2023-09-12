@@ -1,22 +1,19 @@
-//
-// Created by Arturo on 5/09/2023.
-//
-
 #ifndef UNTITLED_NODO_H
 #define UNTITLED_NODO_H
 #include <string>
-
+#include "Datos.h"
 using namespace std;
 
 class Nodo {
 public:
-    string tipo;
-    int data;
-    string cientifico;
+    Datos dato;
     Nodo *next;
     Nodo *prev;
-    Nodo(int data, string cientifico);
+    Nodo();
+    void tostring();
 };
+
+
 
 
 #endif //UNTITLED_NODO_H
