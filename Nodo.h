@@ -6,14 +6,13 @@ using namespace std;
 
 class Nodo {
 public:
-    Datos dato;
+    string type;
+    int data = 0;
+    string cientifico;
     Nodo *next;
     Nodo *prev;
-    Nodo();
-    void tostring();
+    Nodo(int data, string cientifico);
+    void toString();
 };
-
-
-
 
 #endif //UNTITLED_NODO_H
