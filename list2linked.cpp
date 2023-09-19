@@ -27,11 +27,11 @@ void list2linked::crearlista() {
 
             // Creamos un nuevo nodo
             Nodo*node = new Nodo(dato, cientifico);
-            node->next = this->head;
+            node->setNext(this->head);
 
             //Cuando la lista no esta vacía
             if(this->head != nullptr){
-                this->head->prev = node;
+                this->head->setPrev(node);
             }
 
             // Asignamos al nuevo nodo como la cabeza 
@@ -88,13 +88,13 @@ void list2linked::display(){
         while (temp != nullptr)
         {
             // Mostrar el valor del nodo
-            if(temp->type != ""){
-                cout<< "<-"<< "[" << temp->data << "|" << temp->cientifico <<"|"<< temp->type<< "]";
+            if(temp->getType() != ""){
+                cout<< "<-"<< "[" << temp->getData() << "|" << temp->getCientifico() <<"|"<< temp->getType()<< "]";
             }else{
-                cout<< "<-"<<"[" << temp->data << "|" << temp->cientifico <<"]";
+                cout<< "<-"<<"[" << temp->getData() << "|" << temp->getCientifico() <<"]";
             }
             // Visita el siguiente nodo
-            temp = temp->next;
+            temp = temp->getNext();
         }
     }
 }
@@ -105,41 +105,41 @@ void list2linked::searchEvent(Nodo* node){
     Nodo* eventA = this->searchEventX(node, "A");
     if(eventA != nullptr){
         Nodo* eventB = this->searchEventX(node, "B");
-        if(this->isPrime(node->data)){
+        if(this->isPrime(node->getData())){
             if(eventB != nullptr){
-                cout<<"\n"<<"Se ha producido un evento tipo C: "<<node->data<<endl;
-                node->type = "C";
+                cout<<"\n"<<"Se ha producido un evento tipo C: "<<node->getData()<<endl;
+                node->setType("C");
                 eventA->toString();
                 eventB->toString();
                 node->toString();
-                if(this->isCoPrime(eventA->data, node->data)){
+                if(this->isCoPrime(eventA->getData(), node->getData())){
                     cout<<"\n"<<"Se ha viajado en el tiempo y se han compartido datos"<<endl;
                 } else{
                     cout<<"\n"<<"Se ha viajado en el tiempo y No se han compartido datos"<<endl;
                 }
             }else{
-                cout<<"\n"<<"Se ha producido un evento tipo B: "<<node->data<<endl;
-                node->type = "B";
+                cout<<"\n"<<"Se ha producido un evento tipo B: "<<node->getData()<<endl;
+                node->setType("B");
                 eventA->toString();
                 node->toString();}
-        }else if(this->isCoPrime(eventA->data, node->data)){
+        }else if(this->isCoPrime(eventA->getData(), node->getData())){
             if(eventB != nullptr){
-                cout<<"\n"<<"Se ha producido un evento tipo C: "<<node->data<<endl;
-                node->type = "C";
+                cout<<"\n"<<"Se ha producido un evento tipo C: "<<node->getData()<<endl;
+                node->setType("C");
                 eventA->toString();
                 eventB->toString();
                 node->toString();
-                if(this->isPrime(node->data)){
+                if(this->isPrime(node->getData())){
                     cout<<"\n"<<"Se ha viajado en el tiempo y se han compartido datos"<<endl;
                 } else{
                     cout<<"\n"<<"Se ha viajado en el tiempo y No se han compartido datos"<<endl;
                 }
             }
         }
-    }else if(this->isPrime(node->data)){
-        if(node->cientifico == "Einsten"){
-            cout<<"\n"<<"Se ha producido un evento tipo A: "<<node->data<<endl;
-            node->type = "A";
+    }else if(this->isPrime(node->getData())){
+        if(node->getCientifico() == "Einsten"){
+            cout<<"\n"<<"Se ha producido un evento tipo A: "<<node->getData()<<endl;
+            node->setType("A");
             node->toString();
         }
     }
@@ -152,14 +152,15 @@ Nodo* list2linked::searchEventX(Nodo *node, string event){
     Nodo* temp = node;
 
     while(temp!=nullptr){
-        if(temp->next == nullptr || temp->next->type == "C"){
+        if(temp->getNext() == nullptr || temp->getNext()->getType() == "C"){
             return nullptr;
         }
 
-        if(temp->next->type == event){
-            return temp->next;
+        if(temp->getNext()->getType()== event){
+            return temp->getNext();
         }
-        temp= temp->next;
+        temp= temp->getNext();
     }
     return nullptr;
 }
+

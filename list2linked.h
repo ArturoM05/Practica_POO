@@ -6,7 +6,6 @@
 // Clase lista doblemente enlazada
 class list2linked {
 public:
-
     // Atributos
     string cientificos[2] = {"Einsten", "Rosen"};
     Nodo *head;
